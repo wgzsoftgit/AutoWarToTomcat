@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.7</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>AutoWarToTomcat</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>AutoWarToTomcat</name>
+	<packaging>war</packaging>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>1.8</java.version>
+		 <maven-jar-plugin.version>3.0.0</maven-jar-plugin.version > 
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	   <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency> 
+         
+      <!--   <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>8.5.4</version>
+        </dependency> -->
+	</dependencies>
+
+	<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+      </configuration>
+    </plugin>
+
+    <plugin>
+      <groupId>org.apache.tomcat.maven</groupId>
+      <artifactId>tomcat7-maven-plugin</artifactId>
+      <version>2.2</version>
+      <configuration>
+        <url>http://localhost:8080/manager/text</url> <!-- 远程tomcat下manager路径 -->
+        <username>admin</username>    <!-- tomcat控制台账号 -->
+		<password>admin</password>     <!-- tomcat控制台密码-->
+		<path>/AutoWarToTomcat</path> <!-- 此处的名字是项目发布的工程名-->
+        <uriEncoding>UTF-8</uriEncoding><!--编码-->
+        <charset>UTF-8</charset>
+        <encoding>UTF-8</encoding>
+        <!-- <ignorePackaging>true</ignorePackaging>   Skipping non-war projec -->
+      </configuration>
+    </plugin>
+
+  </plugins>
+   <!--  <finalName>AutoWarToTomcat</finalName>    指定打包的名字-->
+</build>
+ 
+	
+
+</project>
